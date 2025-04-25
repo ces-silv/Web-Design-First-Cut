@@ -1,0 +1,181 @@
+/* Global todos sin margenes ni padding */
+* { 
+    margin: 0;
+    padding: 0;
+    /* El tamaño de los elementos incluyen el borde y el padding */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    color: #333333;  /* Textos en gris oscuro */
+    min-height: 100vh; /* Ocupa al menos el 100% del viewport height */
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    /* Baja si es muy pequeña la pantalla xd */
+    flex-wrap: wrap;
+}
+
+.logo {
+    /* Ancho Maximo */
+    max-width: 150px;
+    /* Altura Proporcional */
+    height: auto;
+}
+
+#navbar {
+    /* Hace que los elementos <li> del navbar estén en línea horizontal */
+    display: flex;
+    /* Quita los puntos */
+    list-style: none;
+}
+
+#navbar li a {
+    display: block;                 /* Hace que ocupe todo el ancho del <li> */
+    padding: 10px 20px;            /* Espaciado dentro de la caja */
+    color: #2c3e50;                /* Color del texto */
+    text-decoration: none;         /* Sin subrayado */
+    font-weight: bold;
+    transition: background-color 0.5s ease; /* Transición suave */
+}
+
+#navbar li a:hover {
+    background-color: #009ca9;     /* Color de fondo */
+    color: white;
+    transition: background-color 0.5s ease; /* Transición suave */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    flex-grow: 1; /* Hace que main ocupe todo el espacio disponible */
+}
+
+.box {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border: 2px solid #dddddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Contenedor principal del carrusel */
+.carousel {
+    background-color: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #dddddd;  /* Borde suave */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);  /* Sombra más ligera */
+}
+
+/* Contenedor de todas las slides */
+.slides {
+    display: flex;
+    width: 300%; /* 100% por cada slide (3 slides) */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Cada slide ocupa el 33.33% del contenedor .slides */
+.slide {
+    width: 33.33%; /* 1/3 del ancho total */
+    flex-shrink: 0;
+    text-align: center;
+    position: relative; /* Para posicionar el texto si es necesario */
+}
+
+/* Imagen de la slide - ajustada al contenedor */
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Texto debajo de la imagen */
+.slide p {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Ocultar los radios de selección */
+input[type="radio"] {
+    display: none;
+}
+
+/* Movimiento del carrusel según el slide activo */
+#slide1:checked ~ .slides {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-33.33%);
+}
+
+#slide3:checked ~ .slides {
+    transform: translateX(-66.66%);
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.navigation label {
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0 5px;
+    color: #bbb;
+    transition: color 0.3s;
+}
+
+/* Cambia de color el botón activo */
+input#slide1:checked ~ .navigation label[for="slide1"],
+input#slide2:checked ~ .navigation label[for="slide2"],
+input#slide3:checked ~ .navigation label[for="slide3"] {
+    color: #333;
+}
+
+/* Responsive para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+    .slide img {
+        height: 250px;
+    }
+}
+
+.copy {
+    font-weight: bold;   
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #dddddd;
+}
