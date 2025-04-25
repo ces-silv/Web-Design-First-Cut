@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <img class="logo" src="uam-logo.webp" alt="Logo Universidad Americana UAM">
+        <nav>
+            <ul id="navbar">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="registro.html">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="box-events">
+            <h2 style="margin-bottom: 15px; text-align: center;">Registro</h2>
+            <form class="forms">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correo">Correo Electrónico Institucional:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="carrera">Carrera:</label>
+                <select id="carrera" name="carrera">
+                    <option value="">Seleccione su carrera:</option>
+                    <option value="1">Ing. en Sistemas</option>
+                    <option value="2">Ing. Industrial</option>
+                    <option value="3">Negocios Internacionales</option>
+                    <option value="4">Administración de Empresas</option>
+                </select>
+
+                <label for="evento">Evento:</label>
+
+                <fieldset>
+                    <label><input type="checkbox" name="intereses[]" value="programacion">Uso de GitHub en proyectos colaborativos</label>
+                    <label><input type="checkbox" name="intereses[]" value="redes">Introducción a Docker para entornos de desarrollo</label>
+                    <label><input type="checkbox" name="intereses[]" value="bases_de_datos">Configuración básica de servidores Linux</label>
+                </fieldset>
+
+                <button type="submit">Registrar</button>
+            </form>
+
+        </div>
+    </main>
+    <footer class="copy">
+        <p>2025 &copy; Universidad Americana - UAM</p>
+        <p>Todos los Derechos Reservados</p>
+    </footer>
+    <script src="validations.js"></script>
+</body>
+
+</html>
